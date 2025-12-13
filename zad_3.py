@@ -47,3 +47,10 @@ print(f"scipy.linalg.eigvalsh : {time_sym:.6f} s")
 
 print("\n=== RÓŻNICE W WYNIKACH ===")
 print(f"Norma różnicy wartości własnych: {difference:.3e}")
+
+print("\n=== KILKA WARTOŚCI WŁASNYCH (metoda ogólna) ===")
+print(eigvals_general[:10])   # pierwsze 10
+
+print("\n=== KILKA WARTOŚCI WŁASNYCH (metoda symetryczna) ===")
+print(eigvals_sym[:10])
+

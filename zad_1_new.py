@@ -3,13 +3,10 @@ import numpy as np
 from scipy.linalg import hilbert
 import matplotlib.pyplot  as plt
 
-#Tworznie macierzy Hilberta o rozmiarze 10x10
 n = 10
 A = hilbert(n)
-# s = np.array2string(A, formatter={'float_kind': lambda x: f"{x:0.6f}"})# Ładny druk macierzy z 6 miejscami po przecinku
 
-# Utworzenie wektora prawej strony
-#Liczy sumę każdego wiersza macierzy A i zapisuje do wektora b.axis=1 → sumowanie po kolumnach (czyli po wierszu)
+# Utworzenie wektora prawej strony, sumowanie po kolumnach
 b = A.sum(axis=1)
 
 # rozkład LU - wyniki najdokładniejsze
@@ -19,7 +16,7 @@ x_solve = np.linalg.solve(A, b)
 x_lstsq, *_ = np.linalg.lstsq(A, b, rcond=None)
 
 # rozwiazywanie układu przez mnożenie odwrotnoscią
-A_inv = np.linalg.inv(A) #(obliczenie odwroności)
+A_inv = np.linalg.inv(A) 
 x_inv = A_inv.dot(b)
 
 
@@ -31,7 +28,6 @@ print("\nx_lstsq (metoda najmniejszych kwadratów) - troche wieksze odchylenia:"
 print(np.array2string(x_lstsq, formatter={'float_kind': lambda x: f"{x: .6e}"}))
 
 print("\nx_inv (z użyciem A^{-1} – bardzo duże odchylenia od poprawnego wyniku):")
-#Odchylenia dochodzą do 0.5%, czyli 50x większe niż przy solve()
 print(np.array2string(x_inv, formatter={'float_kind': lambda x: f"{x: .6e}"}))
 
 
@@ -39,7 +35,7 @@ print(np.array2string(x_inv, formatter={'float_kind': lambda x: f"{x: .6e}"}))
 # Wskaźnik uwarunkowania - Określa jak wrażliwe jest rozwiązanie układu równań Ax = b na błędy numeryczne.
 condA = np.linalg.cond(A)
 print("\ncond(A) =", condA)
-print("wskaźnik uwarunkowania bardzo wyoski dla Hilberta, 10¹³ tracimy około 13 cyfr dokładności,")
+# print("wskaźnik uwarunkowania bardzo wyoski dla Hilberta, 10¹³ tracimy około 13 cyfr dokładności,")
 
 
 # Różnice względem solve

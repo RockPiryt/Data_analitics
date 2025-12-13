@@ -1,3 +1,4 @@
+
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import brentq
@@ -18,15 +19,18 @@ plt.xlabel("x")
 plt.ylabel("p(x)")
 plt.grid(True)
 plt.legend()
+plt.ylim(-10, 10)
 plt.show()
 
-# Szukanie przedziałów zmiany znaku, sugerownay pzedzial -5,5
+# Szukanie przedziałów zmiany znaku
 xs = np.linspace(-5, 5, 2001) # 2001 punktoów-> 2000 małych przedziałów o dł 0.0005
 sign_change_intervals = []
 
 for i in range(len(xs) - 1):
-    x1, x2 = xs[i], xs[i+1]# patrzymy na każdy mały przedział   
-    y1, y2 = p(x1), p(x2) # liczymy wartości funkcji na koncach pzedziału
+    # patrzymy na każdy mały przedział
+    x1, x2 = xs[i], xs[i+1] 
+    # liczymy wartości funkcji na koncach pzedziału
+    y1, y2 = p(x1), p(x2)
     
     if y1 == 0: # trafilismy dokladnie w pierwiastek
         sign_change_intervals.append((x1, x1))
@@ -58,4 +62,3 @@ for a, b in unique_intervals:
 print("\nRzeczywiste pierwiastki wielomianu:")
 for r in roots:
     print(f"x ≈ {r:.10f}")
- 
