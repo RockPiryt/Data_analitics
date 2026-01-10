@@ -27,9 +27,7 @@ xs = np.linspace(-5, 5, 2001) # 2001 punktoów-> 2000 małych przedziałów o d�
 sign_change_intervals = []
 
 for i in range(len(xs) - 1):
-    # patrzymy na każdy mały przedział
     x1, x2 = xs[i], xs[i+1] 
-    # liczymy wartości funkcji na koncach pzedziału
     y1, y2 = p(x1), p(x2)
     
     if y1 == 0: # trafilismy dokladnie w pierwiastek
@@ -40,8 +38,6 @@ for i in range(len(xs) - 1):
 # usunięcie bliskich duplikatów
 unique_intervals = []
 for a, b in sign_change_intervals:
-    #porównuje obecnie analizowany przedział i ostatanio dodany -> jeśli różnica jest większa niż 1e-6, uznaje, że to nowy przedział → dodaje
-    #Jeśli różnica jest mniejsza, to traktuje go jako „duplikat” -> pomijam.
     if not unique_intervals or abs(a - unique_intervals[-1][0]) > 1e-6:
         unique_intervals.append((a, b))
 
@@ -53,7 +49,7 @@ for a, b in unique_intervals:
 roots = []
 
 for a, b in unique_intervals:
-    if a == b:  # idealne trafienie w pierwiastek
+    if a == b: 
         roots.append(a)
     else:
         root = brentq(p, a, b) # szukanie miejsca zerowego w konretnym przedziale, p - funkcja, p(x) - konretna liczba

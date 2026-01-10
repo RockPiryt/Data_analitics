@@ -12,14 +12,11 @@ y = sin(2πx), dane z szumem oraz dopasowane wielomiany"""
 # szum
 np.random.seed(0)
 
-"""
-To jest ciągła, gęsto wyliczona funkcja, używana tylko do rysowania ładnego wykresu. 
-x_true ma 400 punktów, czyli dużo więcej."""
+
 # oryginalna krzywa y = sin(2πx), x_true ma 400 punktów,
 x_true = np.linspace(0, 1, 400)
 y_true = np.sin(2*np.pi*x_true)
 
-#  Wybierz 15 równoodległych węzłów w [0, 1] i wygeneruj obserwacje z szumem, y_clean to sinus policzony tylko w tych 15 punktach:
 n = 15 # liczba węzłow
 x = np.linspace(0, 1, n) #x
 y_clean = np.sin(2*np.pi*x) 
@@ -50,7 +47,7 @@ print("Błędy RMSE:")
 for deg in degrees:
     print(f"Stopień {deg}: RMSE = {errors[deg]:.4f}")
 
-# Dla wielomianu stopnia 3 małe rmse czyli dobre dopasowanie
+
 
 # Wykres 
 plt.figure(figsize=(10, 6))
