@@ -1,0 +1,17 @@
+--- Model bez standaryzacji ---
+MSE: 442.574
+R2: 0.814
+area: 0.834
+people: 9.299
+windows: 2.641
+age: -0.187
+Intercept: -1.158
+
+--- Model ze standaryzacja cech ---
+MSE: 442.574
+R2: 0.814
+area (std): 39.568
+people (std): 13.622
+windows (std): 7.549
+age (std): -4.175
+Intercept (std): 133.434
