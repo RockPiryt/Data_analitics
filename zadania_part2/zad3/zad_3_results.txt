@@ -1,0 +1,28 @@
+=== KMEANS: wyniki ===
+Liczba klastrów (k): 3
+Inertia (na danych standaryzowanych): 8.316
+Silhouette score (na danych standaryzowanych): 0.560
+% zgodnych przypisań vs true_segment (po mapowaniu etykiet): 94.44%
+WSS w oryginalnych jednostkach: 7806918.000
+
+Mapowanie klaster -> true_segment (na podstawie majority vote):
+{0: 1, 1: 2, 2: 0}
+
+Centra klastrów w oryginalnych jednostkach:
+ cluster       age  annual_spending  visits_per_month  avg_basket_value
+       0 37.166667      2883.333333          4.500000        348.333333
+       1 52.833333      5916.666667          7.333333        788.333333
+       2 25.833333      1500.000000          2.333333        175.000000
+
+=== k-NN: nowy klient ===
+Nowy klient (oryginalna skala): {'age': 33, 'annual_spending': 2900, 'visits_per_month': 5, 'avg_basket_value': 360}
+Przewidywany klaster: 0
+
+Centroid przypisanego klastra (oryginalna skala):
+age                   37.166667
+annual_spending     2883.333333
+visits_per_month       4.500000
+avg_basket_value     348.333333
+
+Odległość nowego klienta do centroidu (skala standaryzowana): 0.421
+Odległość nowego klienta do centroidu (skala oryginalna): 20.773
