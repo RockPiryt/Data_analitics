@@ -41,7 +41,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 # Dopasowanie modelu bez standaryzacji
 model = LinearRegression()
-model.fit(X_train, y_train)
+model.fit(X_train, y_train) # x dane wejściowe, y prawdziwe zużycie
 
 y_pred = model.predict(X_test)
 
